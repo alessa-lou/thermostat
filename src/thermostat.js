@@ -3,11 +3,15 @@
 class Thermostat{
     constructor() {
       this.temperature = 20;
+      this.powersavingmodeon = true;
     }
     getCurrentTemperature() {
       return this.temperature;
     }
     up(){
+      if (this.temperature >= 25) {
+        throw new Error('Power Saving Mode is on, maximum temperature reached');
+      }
      this.temperature += 1
     }
     down(){
