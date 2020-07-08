@@ -12,22 +12,36 @@ describe('Thermostat', function() {
     expect(thermostat.temperature).toEqual(20);
   });
 
-describe("Up", function(){
-
-  it("should increase temperature by 1", function(){
-    thermostat.up();
-    expect(thermostat.temperature).toEqual(21);
-  });
-
-});
-
-describe("Down", function(){
-
-  it("should decrease temperature by 1", function(){
+  it("cannot go below 10 degrees", function() {
     thermostat.down();
-    expect(thermostat.temperature).toEqual(19);
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    expect(function () { thermostat.down(); }).toThrowError('No');
   });
 
-});
+    describe("Up", function(){
+
+      it("should increase temperature by 1", function(){
+        thermostat.up();
+        expect(thermostat.getCurrentTemperature()).toEqual(21);
+      });
+
+    });
+
+    describe("Down", function(){
+
+      it("should decrease temperature by 1", function(){
+        thermostat.down();
+        expect(thermostat.getCurrentTemperature()).toEqual(19);
+      });
+
+    });
 
 });
