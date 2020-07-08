@@ -48,6 +48,14 @@ describe('Thermostat', function() {
       }
         expect(function () { thermostat.up(); }).toThrowError('Power Saving Mode is on, maximum temperature reached');
       });
+
+      it("should have maximum temperature of 32 degrees when off", function(){
+        thermostat.powersavingmodeon = false;
+        for(var i=0; i < 12; i++){
+          thermostat.up();
+        }
+        expect(function () { thermostat.up();}).toThrowError('Maximum temperature reached');
+      });
     });
 
 });

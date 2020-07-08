@@ -9,8 +9,11 @@ class Thermostat{
       return this.temperature;
     }
     up(){
-      if (this.temperature >= 25) {
+      if (this.powersavingmodeon && this.temperature >= 25) {
         throw new Error('Power Saving Mode is on, maximum temperature reached');
+      }
+      if (this.temperature >= 32) {
+        throw new Error('Maximum temperature reached');
       }
      this.temperature += 1
     }
