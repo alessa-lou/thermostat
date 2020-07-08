@@ -21,4 +21,13 @@ describe("Up", function(){
 
 });
 
+describe("Down", function(){
+
+  it("should decrease temperature by 1", function(){
+    thermostat.down();
+    expect(thermostat.temperature).toEqual(19);
+  });
+
+});
+
 });
