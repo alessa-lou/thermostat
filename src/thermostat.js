@@ -1,6 +1,8 @@
+'use strict';
+
 class Thermostat{
-    function temperature() {
-      
+    constructor() {
+      this.temperature = 20;
     }
 
 }
