@@ -56,6 +56,15 @@ describe('Thermostat', function() {
         }
         expect(function () { thermostat.up();}).toThrowError('Maximum temperature reached');
       });
+
+      it("is on", function(){
+        expect(thermostat.ispowersavingmodeon()).toEqual(true);
+      });
+
+      it("can be turned off", function(){
+        thermostat.psmoff();
+        expect(thermostat.ispowersavingmodeon()).toEqual(false);
+      });
     });
 
 });

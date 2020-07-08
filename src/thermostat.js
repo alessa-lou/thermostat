@@ -24,5 +24,13 @@ class Thermostat{
       this.temperature -= 1
     }
 
+    ispowersavingmodeon() {
+      return this.powersavingmodeon;
+    }
+
+    psmoff() {
+      this.powersavingmodeon = false;
+    }
+
 
 }
