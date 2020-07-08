@@ -84,4 +84,23 @@ describe('Thermostat', function() {
       });
     });
 
+    describe("Energy usage", function(){
+      it("tells you the default energy usage is medium", function(){
+        expect(thermostat.getCurrentEnergyUsage()).toEqual("medium-usage");
+      });
+      it("tells you the current energy usage is low at less than 18 degrees", function(){
+        for (var i = 0; i < 3; i++) {
+          thermostat.down();
+        }
+        expect(thermostat.getCurrentEnergyUsage()).toEqual("low-usage");
+      });
+      it("tells you energy usage is high at over 25 degrees", function(){
+        thermostat.psmoff();
+        for (var i = 0; i < 6; i++) {
+          thermostat.up();
+        }
+        expect(thermostat.getCurrentEnergyUsage()).toEqual("high-usage");
+      });
+    });
+
 });

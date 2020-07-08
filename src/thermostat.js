@@ -36,5 +36,17 @@ class Thermostat{
       this.powersavingmodeon = false;
     }
 
+    getCurrentEnergyUsage() {
+      if (this.temperature < 18) {
+        return "low-usage";
+      }
+      if (this.temperature >= 18 && this.temperature <= 25) {
+        return "medium-usage";
+      }
+      if (this.temperature > 25) {
+        return "high-usage";
+      }
+    }
+
 
 }
