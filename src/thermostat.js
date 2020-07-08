@@ -1,0 +1,6 @@
+class Thermostat{
+    function temperature() {
+      
+    }
+
+}
