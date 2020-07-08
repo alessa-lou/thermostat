@@ -13,16 +13,11 @@ describe('Thermostat', function() {
   });
 
   it("cannot go below 10 degrees", function() {
-    thermostat.down();
-    thermostat.down();
-    thermostat.down();
-    thermostat.down();
-    thermostat.down();
-    thermostat.down();
-    thermostat.down();
-    thermostat.down();
-    thermostat.down();
-    thermostat.down();
+    var times = 10;
+    for(var i=0; i < times; i++){
+      thermostat.down();
+    }
+    console.log(thermostat.getCurrentTemperature());
     expect(function () { thermostat.down(); }).toThrowError('No');
   });
 
