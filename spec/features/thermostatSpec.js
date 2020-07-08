@@ -57,13 +57,23 @@ describe('Thermostat', function() {
         expect(function () { thermostat.up();}).toThrowError('Maximum temperature reached');
       });
 
-      it("is on", function(){
+      it("is on by default", function(){
         expect(thermostat.ispowersavingmodeon()).toEqual(true);
       });
 
       it("can be turned off", function(){
         thermostat.psmoff();
         expect(thermostat.ispowersavingmodeon()).toEqual(false);
+      });
+    });
+
+    describe("Reset", function() {
+      it("resets the temperature to 20 degrees", function(){
+        for (var i = 0; i < 4; i++) {
+          thermostat.up();
+        }
+        thermostat.reset();
+        expect(thermostat.getCurrentTemperature()).toEqual(20);
       });
     });
 

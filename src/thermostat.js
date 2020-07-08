@@ -24,6 +24,10 @@ class Thermostat{
       this.temperature -= 1
     }
 
+    reset(){
+      this.temperature = 20
+    }
+
     ispowersavingmodeon() {
       return this.powersavingmodeon;
     }
