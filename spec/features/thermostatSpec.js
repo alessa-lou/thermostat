@@ -68,9 +68,16 @@ describe('Thermostat', function() {
     });
 
     describe("Reset", function() {
-      it("resets the temperature to 20 degrees", function(){
+      it("resets the temperature to 20 degrees from higher", function(){
         for (var i = 0; i < 4; i++) {
           thermostat.up();
+        }
+        thermostat.reset();
+        expect(thermostat.getCurrentTemperature()).toEqual(20);
+      });
+      it("resets the temperature to 20 degrees from lower", function () {
+        for (var i = 0; i < 4; i++) {
+          thermostat.down();
         }
         thermostat.reset();
         expect(thermostat.getCurrentTemperature()).toEqual(20);
