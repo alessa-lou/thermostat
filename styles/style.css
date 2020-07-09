@@ -1,9 +1,8 @@
 html {
   font-family: 'Raleway', sans-serif;
-  color:
-}
+  }
 
-.thermostat {
+#thermostat {
   background-color: #fd2eb3;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
